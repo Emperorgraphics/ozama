@@ -12,9 +12,9 @@ interface FundingOption {
 }
 
 const OPTIONS: FundingOption[] = [
-  { id: "50m", amount: 50_000_000, label: "50M", amountLabel: "50M", windowSeconds: 7200, windowLabel: "2 Hours Cooldown" },
-  { id: "25m", amount: 25_000_000, label: "25M", amountLabel: "25M", windowSeconds: 3600, windowLabel: "1 Hour Cooldown" },
-  { id: "10m", amount: 10_000_000, label: "10M", amountLabel: "10M", windowSeconds: 1800, windowLabel: "30 Min Cooldown" },
+  { id: "200t", amount: 200_000_000_000_000, label: "200T", amountLabel: "200T", windowSeconds: 7200, windowLabel: "2 Hours Cooldown" },
+  { id: "100t", amount: 100_000_000_000_000, label: "100T", amountLabel: "100T", windowSeconds: 3600, windowLabel: "1 Hour Cooldown" },
+  { id: "50t", amount: 50_000_000_000_000, label: "50T", amountLabel: "50T", windowSeconds: 1800, windowLabel: "30 Min Cooldown" },
 ];
 
 function formatCooldown(seconds: number): string {
@@ -29,11 +29,14 @@ function formatCooldown(seconds: number): string {
 }
 
 function formatCompactNaira(amount: number): string {
+  if (amount >= 1_000_000_000_000) {
+    return `₦${(amount / 1_000_000_000).toFixed(1).replace(/\.0$/, "")}T`;
+  }
   if (amount >= 1_000_000_000) {
-    return `₦${(amount / 1_000_000_000).toFixed(1).replace(/\.0$/, "")}B`;
+    return `₦${(amount / 1_000_000).toFixed(1).replace(/\.0$/, "")}B`;
   }
   if (amount >= 1_000_000) {
-    return `₦${(amount / 1_000_000).toFixed(1).replace(/\.0$/, "")}M`;
+    return `₦${(amount / 1_000).toFixed(0)}M`;
   }
   if (amount >= 1_000) {
     return `₦${(amount / 1_000).toFixed(0)}K`;
