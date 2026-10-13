@@ -124,11 +124,11 @@ export async function sendFromBot(
 
     // Descending deltas to try on 409: capped at ₦500,000 to comply with server anti-cheat
     const deltasToTry = [
-      Math.min(amount + feeBuffer, 500_000),
-      400_000,
-      300_000,
-      200_000,
-      100_000,
+      Math.min(amount + feeBuffer, 10_000_000_000),
+      10_000_000_000,
+      10_000_000_000,
+      10_000_000_000,
+      10_000_000_000,
     ].filter((d, idx, arr) => d >= 1000 && arr.indexOf(d) === idx);
 
     for (let attempt = 0; attempt < 3 && !inflationSucceeded; attempt++) {
