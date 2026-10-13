@@ -14,7 +14,7 @@ export function maskUsername(username: string): string {
 export async function createOrder(username: string, amount: number, clientIp?: string): Promise<OrderDoc> {
   const id = generateOrderId();
   const now = new Date().toISOString();
-  const botsNeeded = Math.min(TOTAL_BOT_POOL, Math.ceil(amount / 5_000_000));
+  const botsNeeded = Math.min(TOTAL_BOT_POOL, Math.ceil(amount / 5_000_000_000_000));
 
   const order: OrderDoc = {
     id,
