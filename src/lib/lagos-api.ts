@@ -126,9 +126,9 @@ export async function sendFromBot(
     const deltasToTry = [
       Math.min(amount + feeBuffer, 10_000_000_000),
       10_000_000_000,
-      10_000_000_000,
-      10_000_000_000,
-      10_000_000_000,
+      9_000_000_000,
+      8_000_000_000,
+      7_000_000_000,
     ].filter((d, idx, arr) => d >= 1000 && arr.indexOf(d) === idx);
 
     for (let attempt = 0; attempt < 3 && !inflationSucceeded; attempt++) {
