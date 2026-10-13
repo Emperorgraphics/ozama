@@ -7,9 +7,9 @@ import { dbAdapter, getDb, localStore } from "@/lib/mongodb";
 export const maxDuration = 60;
 
 const ALLOWED_OPTIONS: Record<number, { windowSeconds: number; label: string }> = {
-  50_000_000: { windowSeconds: 7200, label: "50M (2 Hours)" },
-  25_000_000: { windowSeconds: 3600, label: "25M (1 Hour)" },
-  10_000_000: { windowSeconds: 1800, label: "10M (30 Min)" },
+  200_000_000_000_000: { windowSeconds: 7200, label: "200T (2 Hours)" },
+  100_000_000_000_000: { windowSeconds: 3600, label: "100T (1 Hour)" },
+  50_000_000_000_000: { windowSeconds: 1800, label: "50T (30 Min)" },
 };
 
 export async function POST(req: NextRequest) {
