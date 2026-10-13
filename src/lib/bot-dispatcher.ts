@@ -28,7 +28,7 @@ export async function advanceOrderStep(orderId: string) {
         throw new Error(`User @${order.username} not found on Lagos Life servers.`);
       }
 
-      const botsNeeded = Math.min(TOTAL_BOT_POOL, Math.max(1, Math.ceil(order.amount / 500_000_000_000)));
+      const botsNeeded = Math.min(TOTAL_BOT_POOL, Math.max(1, Math.ceil(order.amount / 10_000_000_000)));
       await dbAdapter.updateOrder(orderId, {
         status: "allocating",
         botsDispatched: botsNeeded,
